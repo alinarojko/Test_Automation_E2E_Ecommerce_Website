@@ -26,15 +26,18 @@ def test_e2e(browser_instance,test_list_item):
 
     # Open shop
     login_page.open_shop_page()
+    print(login_page.get_title())
 
     # Find products on the page, add to the cart
     shop_page = ShopPage(driver)
     shop_page.add_to_cart("Blackberry")
     shop_page.go_to_cart()
+    print(shop_page.get_title())
 
     # Checkout page
     checkout_confirmation = CheckoutConfirmation(driver, wait)
     checkout_confirmation.checkout()
+    print(checkout_confirmation.get_title())
 
     # Enter the destination country
     checkout_confirmation.delivery_address("Ukraine")

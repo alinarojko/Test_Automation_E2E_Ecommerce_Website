@@ -1,9 +1,12 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+from pytest_project.utils.browser_utils import BrowserUtils
 
-class LoginPage:
+
+class LoginPage(BrowserUtils):
     def __init__(self, driver, wait):
+        super().__init__(driver)
         self.driver = driver
         self.wait = wait
         self.user_name = (By.XPATH, "//input[@type='text']")

@@ -1,8 +1,11 @@
 from selenium.webdriver.common.by import By
 
+from pytest_project.utils.browser_utils import BrowserUtils
 
-class ShopPage:
+
+class ShopPage(BrowserUtils):
     def __init__(self, driver):
+        super().__init__(driver)
         self.driver = driver
         self.product_cart = (By.XPATH, "//div[@class='card h-100']")
         self.product_name = (By.XPATH, "./div/h4/a")
@@ -23,5 +26,6 @@ class ShopPage:
     def go_to_cart(self):
         # Checkout page
         self.driver.find_element(*self.cart_button).click()
-        # self.driver.find_element(By.XPATH, "//button[@class='btn btn-success']").click()
+
+
 
