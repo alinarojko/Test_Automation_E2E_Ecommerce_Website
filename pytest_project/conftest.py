@@ -24,7 +24,8 @@ def browser_instance(request):
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     elif browser_name == "edge":
         driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))
+    wait = WebDriverWait(driver, 5)
     yield driver
-    driver.close()
+    # driver.close()
 
 
