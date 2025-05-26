@@ -12,9 +12,9 @@ class LoginPage:
         self.login_button = (By.XPATH, "//input[@type='submit']")
         self.shop_link = (By.XPATH, "//a[text()='Shop']")
 
-    def login(self):
-        self.driver.find_element(*self.user_name).send_keys("rahulshettyacademy")
-        self.driver.find_element(*self.password).send_keys("learning")
+    def login(self, user_name, password):
+        self.driver.find_element(*self.user_name).send_keys(user_name)
+        self.driver.find_element(*self.password).send_keys(password)
         self.driver.find_element(*self.terms_checkbox).click()
         self.driver.find_element(*self.login_button).click()
 

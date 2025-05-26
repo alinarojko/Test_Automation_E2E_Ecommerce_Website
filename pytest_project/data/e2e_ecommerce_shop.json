@@ -1,0 +1,20 @@
+{
+  "data":
+  [
+    { "user_name": "rahulshettyacademy",
+      "password": "learning",
+      "user_product_name": "Blackberry"
+    },
+    {
+      "user_name": "rahulshettyacademy",
+      "password": "learning",
+      "user_product_name": "Samsung Note 8"
+
+    },
+    {
+      "user_name": "rahulshettyacademy",
+      "password": "learning",
+      "user_product_name": "Nokia Edge"
+    }
+  ]
+}

@@ -1,13 +1,20 @@
+import json
 import pytest
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from pytest_project.checkout_confirmation_page_class import CheckoutConfirmation
-from pytest_project.login_class import LoginPage
-from pytest_project.shop_page_class import ShopPage
+from pytest_project.page_objects.checkout_confirmation_page_class import CheckoutConfirmation
+from pytest_project.page_objects.login_class import LoginPage
+from pytest_project.page_objects.shop_page_class import ShopPage
 
 
-def test_e2e(browser_instance):
+file_path = "../data/e2e_ecommerce_shop.json"
+with open(file_path, "r") as file:
+    file_data = json.load(file)
+    test_list = file_data["data"]
+
+
+@pytest.mark.parametrize("test_list_item", test_list)
+@pytest.mark.smoke
+def test_e2e(browser_instance,test_list_item):
     driver = browser_instance
     wait = WebDriverWait(driver, 5)
     url = "https://rahulshettyacademy.com/loginpagePractise"
@@ -15,7 +22,7 @@ def test_e2e(browser_instance):
 
     # login to the shop
     login_page = LoginPage(driver, wait)
-    login_page.login()
+    login_page.login(test_list_item["user_name"], test_list_item["password"])
 
     # Open shop
     login_page.open_shop_page()
