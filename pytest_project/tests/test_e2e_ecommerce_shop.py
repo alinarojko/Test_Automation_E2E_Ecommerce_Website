@@ -6,6 +6,7 @@ from pytest_project.page_objects.login_class import LoginPage
 from pytest_project.page_objects.shop_page_class import ShopPage
 
 
+
 file_path = "../data/e2e_ecommerce_shop.json"
 with open(file_path, "r") as file:
     file_data = json.load(file)
